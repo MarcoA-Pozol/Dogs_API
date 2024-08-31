@@ -1,6 +1,5 @@
 from sqlalchemy import create_engine, MetaData
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker, declarative_base
 
 # DB Connection
 # DATABASE_URL = "postgresql+psycopg2://postgres:mach1029@localhost/DogsAPI_DB"

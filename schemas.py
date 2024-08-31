@@ -25,29 +25,29 @@ class BreedCreate(BreedBase):
     pass
 
 class BreedUpdate(BaseModel):
-    name: Optional[str]
-    breed_origin: Optional[str]
-    weight: Optional[float]
-    height: Optional[float]
-    ear_type: Optional[str]
-    energy_level: Optional[str]
-    life_expectancy: Optional[int]
-    drooling_tendency: Optional[str]
-    snoring_tendency: Optional[str]
-    barking_tendency: Optional[str]
-    digging_tendency: Optional[str]
-    attention_need: Optional[str]
-    breed_for: Optional[str]
-    coat_length: Optional[str]
-    coat_type: Optional[str]
-    coat_colors: Optional[str]
-    grooming_need: Optional[str]
+    name: Optional[str] = None
+    breed_origin: Optional[str] = None
+    weight: Optional[float] = None
+    height: Optional[float] = None
+    ear_type: Optional[str] = None
+    energy_level: Optional[str] = None
+    life_expectancy: Optional[int] = None
+    drooling_tendency: Optional[str] = None
+    snoring_tendency: Optional[str] = None
+    barking_tendency: Optional[str] = None
+    digging_tendency: Optional[str] = None
+    attention_need: Optional[str] = None
+    breed_for: Optional[str] = None
+    coat_length: Optional[str] = None
+    coat_type: Optional[str] = None
+    coat_colors: Optional[str] = None
+    grooming_need: Optional[str] = None
 
 class BreedResponse(BreedBase):
     id: int
 
-    class Config:
-        orm_mode = True
+    class ConfigDict:
+        from_attributes = True
 
 # Dog
 class DogBase(BaseModel):
@@ -56,21 +56,22 @@ class DogBase(BaseModel):
     weight: float
     height: float
     coat_colors: str
+    breed_id: int
     
 class DogCreate(DogBase):
     breed_id: int
     
 class DogUpdate(BaseModel):
-    name: Optional[str]
-    age: Optional[int]
-    weight: Optional[float]
-    height: Optional[float]
-    coat_colors: Optional[str]
-    breed_id: Optional[int]  # Optionally include breed_id if you want to allow updating the breed
+    name: Optional[str] = None
+    age: Optional[int] = None
+    weight: Optional[float] = None
+    height: Optional[float] = None
+    coat_colors: Optional[str] = None
+    breed_id: Optional[int] = None # Optionally include breed_id if you want to allow updating the breed
     
 class DogResponse(DogBase):
     id: int
     # breed: BreedResponse # Include breed details in the dog response
     
-    class Config:
-        orm_mode = True
+    class ConfigDict:
+        from_attributes = True

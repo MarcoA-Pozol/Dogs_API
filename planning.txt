@@ -3,12 +3,14 @@
 -Include the modules for the DogsAPI, modules like db.py, main.py, models.py, schemas.py, test.py. 🗹
 -Create a DB using Postgresql. 🗹
 -Implement all the models, schemas and db connection to make sure the API can manage the principal 4 CRUD methods as endpoints to be able to receive the 5 principal HTTP methods like GET, POST, PUT, DELETE
--Test the API with postman.  🗹
--Build a git repository for this project and create the developing branch for the developing stage, make the initial commit and then push the project code as the first version.
+-Test the API with postman. 🗹
+-Build a git repository for this project and create the developing branch for the developing stage, make the initial commit and then push the project code as the first version. 🗹
 
 25 / 08 / 2024
--Fix Issue with input type None on data update schemas to be able to update data with PUT and PATCH methods.
--Implement Unit Testing practices to test the endpoints work as expected and return the correct data or receive it, modifies the data and work with their respective methods and HTTP responses.
--Dockerize the API to be running at port 10505 in a container, managing the DB container and the API container independently to avoid issues and make sure the API depends of the DB is running before it.
+-Fix Issue with input type None on data update schemas to be able to update data with PUT and PATCH methods. 🗹
+-Implement Unit Testing practices to test the endpoints work as expected and return the correct data or receive it, modifies the data and work with their respective methods and HTTP responses. 🗹
+-Fix bugs about unit testing, all the bugs are placed on bugs_to_fix.txt 🗹
+
+30 / 08 / 2024
+-Dockerize the API to be running at port 10505 in a container, managing the DB container and the API container independently to avoid issues and make sure the API that depends of the DB is running before it.
 -Test the Dockerized API endpoints with Postman.
--End

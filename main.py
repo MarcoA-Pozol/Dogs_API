@@ -19,11 +19,32 @@ def get_dog(dog_id: int, db: Session = Depends(get_db)):
     db_dog = db.query(models.Dog).filter(models.Dog.id == dog_id).first()
     if db_dog is None:
         raise HTTPException(status_code=404, detail="Dog not found")
+    
+    if db_dog.age is None:
+        db_dog.age = 0  # Set default age or handle accordingly
+    if db_dog.weight is None:
+        db_dog.weight = 0.0  # Set default weight or handle accordingly
+    if db_dog.height is None:
+        db_dog.height = 0.0  # Set default height or handle accordingly
+    if db_dog.coat_colors is None:
+        db_dog.coat_colors = "Unknown"
+    
     return db_dog
 
 @app.get("/dogs/", response_model=list[schemas.DogResponse])
 def get_dogs_list(db: Session = Depends(get_db)):
     dogs = db.query(models.Dog).all()
+    
+    for dog in dogs:
+        if dog.age is None:
+            dog.age = 0  # Set default age or handle accordingly
+        if dog.weight is None:
+            dog.weight = 0.0  # Set default weight or handle accordingly
+        if dog.height is None:
+            dog.height = 0.0  # Set default height or handle accordingly
+        if dog.coat_colors is None:
+            dog.coat_colors = "Unknown"
+    
     return dogs
 
 @app.get("/breeds/{breed_id}", response_model=schemas.BreedResponse)

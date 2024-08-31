@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  api: # For application container 
+    build: . # Path of the application
+    container_name: dogs_api_container
+    ports:
+      - "10500:10500"
+    volumes:
+      - ./DogsAPI_DB.db:/app/DogsAPI_DB.db # Bind mount the db file to the container
+    environment: # Place all your environment variables as needed(This change depending your DB, project, specific necesities, etc)
+      - DATABASE_URL=sqlite:///DogsAPI_DB.db
+    depends_on:
+      - db
+    networks:
+      - dogs_api_network # Attach the api service to the custom network
+
+  db:
+    image: busybox
+    volumes:
+      - ./DogsAPI_DB.db:/app/DogsAPI_DB.db # Bind mount the database file
+    command: ["tail", "-f", "/dev/null"] # Keeps the container running
+    networks:
+      - dogs_api_network # Attach the db service to the custom network
+
+networks:
+  dogs_api_network:
+    driver: bridge # Default driver
