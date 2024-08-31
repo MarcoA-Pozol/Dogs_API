@@ -12,6 +12,6 @@
 -Fix bugs about unit testing, all the bugs are placed on bugs_to_fix.txt 🗹
 
 30 / 08 / 2024
--Dockerize the API to be running at port 10505 in a container, managing the DB container and the API container independently to avoid issues and make sure the API that depends of the DB is running before it. 🗹
+-Dockerize the API to be running at port 10500 in a container, managing the DB container and the API container independently to avoid issues and make sure the API that depends of the DB is running before it. 🗹
 -Test the Dockerized API endpoints with Postman. 🗹
 -End. 🗹

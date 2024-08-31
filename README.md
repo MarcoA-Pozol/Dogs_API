@@ -31,10 +31,11 @@ So in the same directory of the project at root type this in bash (you must have
 docker-compose up -d'''
 
 Once you had builded the containers, it is time to start to get data throught the endpoints for Dogs and Breeds, use whatever of these and try both them:
--localhost:10505/dogs (List all the dogs and return it as a Json)
--localhost:10505/dogs/<dog_id> (Retrieve a dog by their ID and if not exists so it raise an HTTP 404 error)
--localhost:10505/breeds (List all the breeds and return it as a Json)
--localhost:10505/breeds/<breed_id> (Retrieve a breed by their ID and if not exists so it raise an HTTP 404 error)
+-localhost:10500/dogs (List all the dogs and return it as a Json)
+-localhost:10500/dogs/<dog_id> (Retrieve a dog by their ID and if not exists so it raise an HTTP 404 error)
+-localhost:10500/breeds (List all the breeds and return it as a Json)
+-localhost:10500/breeds/<breed_id> (Retrieve a breed by their ID and if not exists so it raise an HTTP 404 error)
+- Or just make another resquest as POST, PUT, PATCH and DELETE with tools like Postman or the most liked to your preferencies.
 
 ## Contributing 
 For now our Team is very small, but feel free to use this API, we hope we could work together in the future. As another way you can contact us at hiitech@gmail.com
